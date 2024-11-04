@@ -25,7 +25,7 @@ class Linkable extends StatelessWidget {
 
   final int? maxLines;
 
-  final double? textScaleFactor;
+  final TextScaler? textScaler;
 
   final StrutStyle? strutStyle;
 
@@ -44,7 +44,7 @@ class Linkable extends StatelessWidget {
     this.style,
     this.textAlign = TextAlign.start,
     this.textDirection,
-    this.textScaleFactor = 1.0,
+    this.textScaler = const TextScaler.linear(1.0),
     this.maxLines,
     this.strutStyle,
     this.textWidthBasis = TextWidthBasis.parent,
@@ -62,7 +62,7 @@ class Linkable extends StatelessWidget {
       ),
       textAlign: textAlign,
       textDirection: textDirection,
-      textScaleFactor: textScaleFactor,
+      textScaler: textScaler,
       maxLines: maxLines,
       strutStyle: strutStyle,
       textWidthBasis: textWidthBasis,
