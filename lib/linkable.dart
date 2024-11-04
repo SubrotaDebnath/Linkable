@@ -13,9 +13,10 @@ import 'package:url_launcher/url_launcher.dart';
 class Linkable extends StatelessWidget {
   final String text;
 
-  final Color? textColor;
+  // final Color? textColor;
+  // final Color? linkColor;
 
-  final Color? linkColor;
+  final TextStyle? linkTextStyle;
 
   final TextStyle? style;
 
@@ -39,8 +40,9 @@ class Linkable extends StatelessWidget {
   Linkable({
     Key? key,
     required this.text,
-    this.textColor = Colors.black,
-    this.linkColor = Colors.blue,
+    // this.textColor = Colors.black,
+    // this.linkColor = Colors.blue,
+    this.linkTextStyle,
     this.style,
     this.textAlign = TextAlign.start,
     this.textDirection,
@@ -95,13 +97,15 @@ class Linkable extends StatelessWidget {
   }
 
   _text(String text) {
-    return TextSpan(text: text, style: TextStyle(color: textColor));
+    return TextSpan(text: text, style: style);
+    // return TextSpan(text: text, style: TextStyle(color: textColor));
   }
 
   _link(String text, String type) {
     return TextSpan(
         text: text,
-        style: TextStyle(color: linkColor),
+        style: linkTextStyle,
+        // style: TextStyle(color: linkColor),
         recognizer: TapGestureRecognizer()
           ..onTap = () {
             _launch(_getUrl(text, type));
